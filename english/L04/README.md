@@ -135,7 +135,7 @@ ead := EadCourse{Course{"New EAD", make([]Student, 0)}, "http://eadcourse"}
 ead.course.register(newStudent)
 fmt.Println(ead)
 ...
-{{New EAD [{John Doe}]} http://eadcourse}
+"{{New EAD [{John Doe}]} http://eadcourse}"
 ```
 
 **Methods in other types**
