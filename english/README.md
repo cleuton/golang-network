@@ -18,3 +18,4 @@ The course is divided into lessons. Follow them sequentially for better understa
 2. [**Datatypes, assignment, blocks**](./L02);
 3. [**Code Modularity**](./L03);
 4. [**Modularity: Structs**](./L04);
+5. [**Interfaces**](./L05);
