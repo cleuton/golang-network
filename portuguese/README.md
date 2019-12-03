@@ -19,3 +19,4 @@ O curso é dividido em lições. Siga-as de forma sequencial, para melhor compre
 3. [**Modularização do código**](./L03);
 4. [**Modularização: Structs**](./L04);
 5. [**Interfaces**](./L05);
+6. [**I/O básico**](./L06);

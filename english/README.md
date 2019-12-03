@@ -19,3 +19,4 @@ The course is divided into lessons. Follow them sequentially for better understa
 3. [**Code Modularity**](./L03);
 4. [**Modularity: Structs**](./L04);
 5. [**Interfaces**](./L05);
+6. [**Base I/O**](./L06);
