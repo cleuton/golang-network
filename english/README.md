@@ -5,3 +5,4 @@
 # English content
 
 - [**Basic programming course**](./course.md);
+- [**CUDA no-stress programming**](./cuda/nostress);

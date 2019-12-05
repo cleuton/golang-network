@@ -5,3 +5,4 @@
 # Conteúdo em português
 
 - [**Curso básico de Go**](./curso.md);
+- [**Programação Cuda sem stress**](./cuda/nostress);
