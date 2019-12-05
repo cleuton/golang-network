@@ -74,7 +74,7 @@ extern "C" {
 
 The **vecmul()** function is the kernel and the **maxmul()** function is the helper. Its function is to allocate memory in the **GPU**, copy the parameters, invoke the kernel, and copy the result. Values ​​are passed by reference.
 
-## Co code
+## Go code
 
 [**Program maxmul.go**](./maxmul.go) invokes the **helper** function and displays the result: 
 
