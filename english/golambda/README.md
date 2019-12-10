@@ -6,7 +6,7 @@
 
 ![](../../images/golambda.png)
 
-[**FaaS** or *Function as a Service*] (https://en.wikipedia.org/wiki/Function_as_a_service) is a way to expose a service function without the complexity of dealing with servers, platforms. and protocols. In fact, I have a dedicated blog about it: [**faas.guru**](http://faas.guru).
+[**FaaS** or *Function as a Service*](https://en.wikipedia.org/wiki/Function_as_a_service) is a way to expose a service function without the complexity of dealing with servers, platforms. and protocols. In fact, I have a dedicated blog about it: [**faas.guru**](http://faas.guru).
 
 ![](../../images/faasguru1.jpeg)
 
