@@ -9,10 +9,12 @@ This is a repository to learn [**Go programming language**](https://golang.org/)
 
 Este é um repositório para aprender a [**Linguagem de programação Go**](https://golang.org/). É um curso completo e gratuito de programação básica com **GoLang**.
 
-![](./new.png) [**No stress CUDA**](./english/cuda/nostress) / [**CUDA sem stress**](./portuguese/cuda/nostress)
+![](./new.png) [**Go Lambda - FaaS**](./english/golambda) / [**Lambda e FaaS com Go**](./portuguese/golambda)
 
 - [**BASIC GO PROGRAMMING COURSE**](./english/course.md);
 - [**CURSO BÁSICO DE PROGRAMAÇÃO GO**](./portuguese/curso.md);
+- [**No stress CUDA**](./english/cuda/nostress)
+- [**CUDA sem stress**](./portuguese/cuda/nostress)
 
 - [**English menu**](./english/README.md);
 - [**Menu em português**](./portuguese/README.md);
