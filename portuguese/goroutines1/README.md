@@ -21,7 +21,7 @@ Ambas as técnicas possuem vantagens, desvantagens e riscos. A maior vantagem se
 
 ## Goroutines
 
-Vamos começar pela nossa conhecida [**sequência de Fibonacci**](https://pt.wikipedia.org/wiki/Sequ%C3%AAncia_de_Fibonacci). O [**código exemplo**](../../code/goroutines1/fibo.go) mostra como calcular de maneira iterativa: 
+Vamos começar pela nossa conhecida [**sequência de Fibonacci**](https://pt.wikipedia.org/wiki/Sequ%C3%AAncia_de_Fibonacci). O [**código exemplo**](https://github.com/cleuton/golang-network/tree/master/code/goroutines1/fibo.go) mostra como calcular de maneira iterativa: 
 
 ```
 func FibonacciLoop(n int) int {
@@ -58,7 +58,7 @@ func main() {
 
 Este código poderia ser um componente RESTful invocando uma função lambda, certo? Esta chamada seria síncrona e bloqueadora, ou seja, o código teria que esperar o término da chamada a **FibonacciLoop()** antes de continuar. 
 
-Com o conceito de **Goroutines** podemos implementar **multiprogramação** em nosso código, de maneira simples e prática. Vejamos isso no [**exemplo seguinte**](../../code/goroutines1/fibo2/fibo2.go):
+Com o conceito de **Goroutines** podemos implementar **multiprogramação** em nosso código, de maneira simples e prática. Vejamos isso no [**exemplo seguinte**](https://github.com/cleuton/golang-network/tree/master/code/goroutines1/fibo2/fibo2.go):
 
 ```
 func FibonacciLoop(n int) {
@@ -132,7 +132,7 @@ No primeiro exemplo, enviamos um string formatado para o canal, e no segundo, le
 
 A leitura e gravação em canais são operaçôes síncronas! Quando uma Goroutine grava em um canal, seu processamento é bloqueado até que outra Goroutine leia do canal. Respectivamente, quando uma Goroutine lê dados de um canal, seu processamento é igualmente bloqueado até que haja algo no canal.
 
-Vejamos o [**terceiro exemplo**](../../code/goroutines1/fibo3/fibo3.go): 
+Vejamos o [**terceiro exemplo**](https://github.com/cleuton/golang-network/tree/master/code/goroutines1/fibo3/fibo3.go): 
 
 ```
 func FibonacciLoop(n int, aChannel chan string) {
@@ -165,7 +165,7 @@ func main() {
 }
 ```
 
-Agora, virou uma chamada síncrona, pois o código de leitura do canal (```answer := <- chAnswer```) será bloqueado até que a função **FibonacciLoop()** grave algo nele. Há várias soluções para criar canais não bloqueantes. Podemos usar um **select** com uma opção **default**, que será invocada sem bloquear o código. Veja isso no [**exemplo final**](../../code/goroutines1/fibo4/fibo4.go): 
+Agora, virou uma chamada síncrona, pois o código de leitura do canal (```answer := <- chAnswer```) será bloqueado até que a função **FibonacciLoop()** grave algo nele. Há várias soluções para criar canais não bloqueantes. Podemos usar um **select** com uma opção **default**, que será invocada sem bloquear o código. Veja isso no [**exemplo final**](https://github.com/cleuton/golang-network/tree/master/code/goroutines1/fibo4/fibo4.go): 
 
 ```
 func main() {

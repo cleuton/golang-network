@@ -21,7 +21,7 @@ Both techniques have advantages, disadvantages and risks. The biggest advantage 
 
 ## Goroutines
 
-Let's start with our well-known [**Fibonacci sequence**](https://en.wikipedia.org/wiki/Fibonacci_number). The [**sample code**](../../code/goroutines1/fibo.go) shows how to iteratively calculate it:
+Let's start with our well-known [**Fibonacci sequence**](https://en.wikipedia.org/wiki/Fibonacci_number). The [**sample code**](https://github.com/cleuton/golang-network/tree/master/code/goroutines1/fibo.go) shows how to iteratively calculate it:
 
 ```
 func FibonacciLoop(n int) int {
@@ -58,7 +58,7 @@ func main() {
 
 This code could be a RESTful component calling a lambda function, right? This call would be synchronous and blocking, meaning the code would have to wait for the call to **FibonacciLoop()** function to finish before continuing.
 
-With the concept of **Goroutines** we can implement **multiprogramming** in our code in a simple and practical way. Let's look at this in the [**following example**](../../code/goroutines1/fibo2/fibo2.go):
+With the concept of **Goroutines** we can implement **multiprogramming** in our code in a simple and practical way. Let's look at this in the [**following example**](https://github.com/cleuton/golang-network/tree/master/code/goroutines1/fibo2/fibo2.go):
 
 ```
 func FibonacciLoop(n int) {
@@ -132,7 +132,7 @@ In the first example, we send a formatted string to the channel, and in the seco
 
 Channel reading and writing is synchronous operations! When a Goroutine writes to a channel, its processing is blocked until another Goroutine reads from the channel. Respectively, when a Goroutine reads data from a channel, its processing is equally blocked until something is written on the channel.
 
-Let's look at the [**third example**](../../code/goroutines1/fibo3/fibo3.go):
+Let's look at the [**third example**](https://github.com/cleuton/golang-network/tree/master/code/goroutines1/fibo3/fibo3.go):
 
 ```
 func FibonacciLoop(n int, aChannel chan string) {
@@ -165,7 +165,7 @@ func main() {
 }
 ```
 
-It has now become a synchronous call because the channel read code (```answer: = <- chAnswer```) will be blocked until the **FibonacciLoop()** function writes something to it. There are several solutions for creating non-blocking channels. We can use a **select** with a **default** option, which will be invoked without blocking the code. See this in the [**final example**](../../code/goroutines1/fibo4/fibo4.go):
+It has now become a synchronous call because the channel read code (```answer: = <- chAnswer```) will be blocked until the **FibonacciLoop()** function writes something to it. There are several solutions for creating non-blocking channels. We can use a **select** with a **default** option, which will be invoked without blocking the code. See this in the [**final example**](https://github.com/cleuton/golang-network/tree/master/code/goroutines1/fibo4/fibo4.go):
 
 ```
 func main() {
