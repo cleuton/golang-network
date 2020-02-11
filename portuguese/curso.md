@@ -2,6 +2,8 @@
 
 (c) **Cleuton Sampaio** 2018
 
+[![](../banner_livros2.png)](https://www.lcm.com.br/site/#livros/busca?term=cleuton)
+
 # ANTES DE MAIS NADA
 
 Este é um curso de programação básica, mas assumo que você já conhece algoritmos e estruturas de dados, e também já sabe programar utilizando alguma outra linguagem, como: Java, Python, C etc. 
