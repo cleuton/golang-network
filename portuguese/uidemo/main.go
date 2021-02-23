@@ -6,6 +6,10 @@ import (
 
 var w webview.WebView
 
+func acerta() {
+	w.Eval("document.getElementById('txt01').value = '*****'")
+}
+
 func main() {
 	debug := true
 	page := `data:text/html,
@@ -31,7 +35,10 @@ func main() {
 	defer w.Destroy()
 	w.SetTitle("Minimal webview example")
 	w.SetSize(800, 600, webview.HintNone)
-	w.Bind("go_click", func(x string) string { return "Digitou: " + x })
+	w.Bind("go_click", func(x string) string {
+		acerta()
+		return "Digitou: " + x
+	})
 	w.Init("window.alert('teste')")
 	w.Navigate(page)
 	w.Run()

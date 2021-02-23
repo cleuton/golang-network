@@ -25,6 +25,10 @@ import (
 
 var w webview.WebView
 
+func acerta() {
+	w.Eval("document.getElementById('txt01').value = '*****'")
+}
+
 func main() {
 	debug := true
 	page := `data:text/html,
@@ -50,7 +54,10 @@ func main() {
 	defer w.Destroy()
 	w.SetTitle("Minimal webview example")
 	w.SetSize(800, 600, webview.HintNone)
-	w.Bind("go_click", func(x string) string { return "Digitou: " + x })
+	w.Bind("go_click", func(x string) string {
+		acerta()
+		return "Digitou: " + x
+	})
 	w.Init("window.alert('teste')")
 	w.Navigate(page)
 	w.Run()
@@ -70,6 +77,7 @@ The code is self-explanatory, but I will talk about some relevant methods:
 - **New**: Instantiates the WebView;
 - **Set..**: Change its properties (title, size, etc.);
 - **Bind**: Associates a **Golang** object to an object in the **Javascript** global context. In this case, I am associating an anonymous function;
+- **Eval**: Run Javascript in the web context. You can use it to change elements' properties;
 - **Init**: Send **Javascript** code to be executed directly on the page;
 - **Navigate**: Navigate to the URI. It can be an external file, an external website or, using the "data" protocol, a string generated inside the golang code, as in this example;
 
