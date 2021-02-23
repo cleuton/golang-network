@@ -11,7 +11,9 @@ This is a repository to learn [**Go programming language**](https://golang.org/)
 
 Este é um repositório para aprender a [**Linguagem de programação Go**](https://golang.org/). É um curso completo e gratuito de programação básica com **GoLang**.
 
-![](./new.png) [**Redes neurais com Gorgonia**](./portuguese/deeplearning1) / [**Neural networks with Gorgonia**](./english/deeplearning1)
+![](./new.png)[**Ui simplificada com Webview**](./portuguese/uidemo) / [**Simple Ui with Webview**](./english/uidemo)
+- [**Redes neurais com Gorgonia**](./portuguese/deeplearning1)
+- [**Neural networks with Gorgonia**](./english/deeplearning1)
 - [**Banco de dados com gORM**](./portuguese/gorm1)
 - [**Databases with gORM**](./english/gorm1)
 - [**Programação concorrente com Goroutines**](./portuguese/goroutines1) 
