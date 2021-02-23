@@ -1,4 +1,4 @@
-![](../golangnetwork-logo.png)
+![](../../golangnetwork-logo.png)
 
 (c) **Cleuton Sampaio** 2021
 
