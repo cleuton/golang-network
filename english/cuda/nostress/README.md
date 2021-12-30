@@ -123,9 +123,11 @@ You need to have CUDA and the Nvidia driver installed!
 Then just run the **Go** code with the command:
 
 ```
-go run maxmul.go
+LD_LIBRARY_PATH=${PWD}${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}} go run maxmul.go
 ...
 [19 36 16 27 41 31 28 15 24]
 ```
+
+You have to add `LD_LIBRARY_PATH=${PWD}${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}` when putting library into location other than already defined in `LD_LIBRARY_PATH`. You might find more information about this environment variable [here](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions) 
 
 And this is the result of matrix multiplication!
