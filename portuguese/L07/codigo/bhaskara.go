@@ -2,7 +2,7 @@ package bhaskarautils
 
 import (
 	"math"
-	"fmt"
+
 )
 
 func Roots(d float64, a float64, b float64) (float64, float64) {
