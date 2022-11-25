@@ -1,7 +1,7 @@
 # Criando uma API Rest com Database em Golang
 **Cleuton Sampaio**
 
-Vamos criar uma api bem simples: Um CRUD para guardar dados de candidatos a emprego. Ela permitirá: 
+Vamos criar uma [**api bem simples**](https://github.com/cleuton/golang-network/tree/master/code/goapidb): Um CRUD para guardar dados de candidatos a emprego. Ela permitirá: 
 - Cadastrar um candidato
 - Atualizar dados de um candidato
 - Deletar um candidato
@@ -122,7 +122,7 @@ Este driver é utilizado indiretamente pelo pacote "database/sql" queremos impor
 import _ "github.com/lib/pq"
 ```
 
-Vamos usar "net/http" para criar nosso servidor. A primeira coisa é criar uma pasta "cmd" e, dentro dela, um arquivo "main.go". Você pode ver esse arquivo no repositório.
+Vamos usar "net/http" para criar nosso servidor. A primeira coisa é criar uma pasta "cmd" e, dentro dela, um arquivo "main.go". Você pode ver [**esse arquivo no repositório**](https://github.com/cleuton/golang-network/tree/master/code/goapidb).
 
 ### Estrutura ###
 
