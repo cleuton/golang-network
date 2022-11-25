@@ -1,0 +1,4 @@
+curl -i http://localhost:8080/candidatos
+curl -i -X POST http://localhost:8080/candidato -H 'Content-Type: application/json' -d '{"nome":"Jose da silva"}'
+curl -i -X PUT http://localhost:8080/candidato/4 -H 'Content-Type: application/json' -d '{"nome":"Jose da Silva"}'
+curl -i -X DELETE http://localhost:8080/candidato/4 -H 'Content-Type: application/json' 
