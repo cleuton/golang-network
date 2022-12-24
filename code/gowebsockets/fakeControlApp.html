@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Drone controll app</title>
+  </head>
+  <div>
+    <h3>Select command to send to drone</h3>
+    <select id="commandSelect" onchange="send()">
+      <option value="NOP">Select a command</option>
+      <option value="UP 10">UP 10</option>
+      <option value="DOWN 10">DOWN 10</option>
+      <option value="RIGHT 10">RIGHT 10</option>
+      <option value="LEFT 10">LEFT 10</option>
+      <option value="LAND">LAND</option>
+    </select>
+  </div>
+  <div id="cmds">
+  </div>
+  <script>
+    var cmdsOutput = document.getElementById("cmds");
+    var commands = document.getElementById("commandSelect");
+    
+    var ws = new WebSocket("ws://localhost:8080/api/controller");
+
+    ws.onopen = function () {
+      cmdsOutput.innerHTML += "Status: Connected\n";
+    };
+
+    ws.onmessage = function (event) {
+      cmdsOutput.innerHTML += "<br/>Response: " + event.data;
+    };
+
+    function send() {
+      if (commands.value != "NOP") {
+        ws.send(commands.value);
+        commands.value = "NOP"
+      }
+    }
+  </script>
+</html>
