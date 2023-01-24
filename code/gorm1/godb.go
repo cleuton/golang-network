@@ -2,102 +2,70 @@ package main
 
 import (
     "fmt"
-    "time"
-  "github.com/jinzhu/gorm"
-  _ "github.com/jinzhu/gorm/dialects/postgres"
+    "os"
+    "network.golang/curso-gorm/db"
+    "gorm.io/driver/postgres"
+    "gorm.io/gorm"
 )
-
-type Pessoa struct {
-    Cpf string `gorm:"primary_key;type:varchar(11);column:cpf"`
-    Name string `gorm:"type:varchar(50);column:nome"`
-    BirthDate *time.Time `gorm:"column:data_nascimento"`
-    Employee bool `gorm:"column:funcionario"`
-}
 
 func main() {
 
-    // Open connection to a postgresql database running on ElephantQL:
-    db, err := gorm.Open("postgres", "host=elmer.db.elephantsql.com port=5432 user=userdbname dbname=userdbname password=password")
+    // Run postgres: docker run -p 5432:5432 --name <name> -e POSTGRES_PASSWORD=<password> -d postgres
+
+    // Get credentials from Environment Variables:
+    databaseName := os.Getenv("DATABASENAME") 
+    userName := os.Getenv("USERNAME")
+    password := os.Getenv("PASSWORD")
+    host := os.Getenv("DATABASEHOST")
+
+    dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=America/Sao_Paulo",
+                      host, userName, password, databaseName)
+    fmt.Println(dsn)
+
+    // Open connection to a postgresql database:
+    db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
+      DisableForeignKeyConstraintWhenMigrating: true,
+    })
     if err != nil {
         panic("failed to connect database")
     }
-    defer db.Close()
+
     fmt.Println("OK")
 
-    // Let's start a transaction:
-    tx := db.Begin()
 
-    // Let's create some persons:
-    dt,_ := time.Parse("2006-01-02", "1979-08-18")
-    person1 := &Pessoa{"111","Person#1",&dt,false}
-    tx.Table("public.pessoa").Create(&person1)
-    person2 := &Pessoa{"222","Person#2",&dt,false}
-    tx.Table("public.pessoa").Create(&person2)
-    person3 := &Pessoa{"333","Person#3",&dt,false}
-    tx.Table("public.pessoa").Create(&person3)
+    // Let's run the migrations to create tables:
 
-    // Commiting the transaction:
-    tx.Commit()
+    db.Migrator().AutoMigrate(&model.Member{}, &model.Note{})
 
-    // Select data from first record:
-    var person Pessoa
-    if result := db.Table("public.pessoa").First(&person); result.Error != nil {
-      panic(result.Error)
-    }
-    fmt.Println("First person: ",person)
+    // Let's create the constrants:
+    db.Migrator().CreateConstraint(&model.Member{}, "Notes")
+    db.Migrator().CreateConstraint(&model.Member{}, "Connections")
+   
+    // Let's add some data:
+    user1 := &model.Member{Name: "Paul", Email: "paul@testmail"}
+    db.Create(&user1)
+    user2 := &model.Member{Name: "John", Email: "john@test"}
+    db.Create(&user2)
 
-    // Select all: 
-    var persons []Pessoa
-    if result := db.Table("public.pessoa").Find(&persons); result.Error != nil {
-      panic(result.Error)
-    }
-    fmt.Printf("Persons: %+v\n",persons)
+    // Connect John to Paul: 
+    db.Model(&user2).Association("Connections").Append(user1)
+    db.Save(user2)
 
-    // Select / where:
-    var person222 Pessoa
-    if result := db.Table("public.pessoa").Where("cpf like ?", "222").First(&person222); result.Error != nil {
-      panic(result.Error)
-    }
-    fmt.Println("Person identified by cpf: ",person222)
+    // Paul wrote a note:
+    db.Model(&user1).Association("Notes").Append(&model.Note{Author: *user1, Text: "This is a note"})
+    db.Save(user1)
 
+    // Now get user Paul from database:
+    paul := &model.Member{}
+    db.Preload("Notes").Preload("Connections").First(&paul,1)
+    fmt.Printf("\nPaul has a note with text: %s\n",paul.Notes[0].Text)
+    fmt.Printf("\nPaul has %d connections\n", len(paul.Connections))
 
+    // Now get user John, who is connected to Paul:
+    john := &model.Member{}
+    db.Preload("Notes").Preload("Connections").First(&john,2)
+    fmt.Printf("\nJohn has %d notes\n", len(john.Notes))
+    fmt.Printf("\nJohn has a connection with %s\n",john.Connections[0].Name)    
 
-    // Update: 
-    fmt.Println("Before updating: ",person3.BirthDate)
-    if result := db.Table("public.pessoa").Where("cpf like ?", "333").First(&person3); result.Error != nil {
-      panic(result.Error)
-    }
-    newdate, _ := time.Parse("2006-01-02", "1990-11-01")
-    if result := db.Table("public.pessoa").Model(&person3).Update("data_nascimento", &newdate); result.Error != nil {
-      panic(result.Error)
-    }
-    fmt.Println("Person data updated",person3.BirthDate)
-
-    // Delete: 
-
-    if result := db.Table("public.pessoa").Where("cpf like ?", "111").First(&person1); result.Error != nil {
-      panic(result.Error)
-    }
-    fmt.Println(person1)
-    if result := db.Table("public.pessoa").Delete(&person1); result.Error != nil {
-      panic(result.Error)
-    }
-    fmt.Println("Person deleted")
- 
-    if result := db.Table("public.pessoa").Where("cpf like ?", "222").First(&person2); result.Error != nil {
-      panic(result.Error)
-    }
-    if result := db.Table("public.pessoa").Delete(&person2); result.Error != nil {
-      panic(result.Error)
-    }
-    fmt.Println("Person deleted")
-
-    if result := db.Table("public.pessoa").Where("cpf like ?", "333").First(&person3); result.Error != nil {
-      panic(result.Error)
-    }
-    if result := db.Table("public.pessoa").Delete(&person3); result.Error != nil {
-      panic(result.Error)
-    }
-    fmt.Println("Person deleted")
 
 }
