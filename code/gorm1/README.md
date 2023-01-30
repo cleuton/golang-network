@@ -1,10 +1,14 @@
 # ORM com Postgres
 
+![](./Go_gopher_mascot_bw.png)
+
 **Object Relational Mapping** (ORM) é uma técnica para mapear modelos de dados relacionais para modelos de classes. Com ela, passamos a lidar com objetos em nosso código e não mais com **SQL**. 
 
 Minha opinião é que isso é extremamente desnecessário na maioria dos casos. Bastaria criar um tipo de **DAO** (Data Access Object) e trafegar instâncias de **DTOs** (Data Transfer Objects), evitando a complexidade desnecessária. Você pode isolar as operações básicas de SQL em um componente a parte, de modo a poder substituir o banco de dados, caso sena preciso. 
 
 Tendo dito isso, ORM ainda é uma técnica muito valorizada no Mercado de TI, portanto, vale a pena aprender e praticar em qualquer linguagem de programação. Em **Go** temos o **Gorm** (https://gorm.io/), que funciona relativamente bem, sendo bastante popular. 
+
+O repositório com o código exemplo deste tutorial está no [**golang.network**](https://github.com/cleuton/golang-network/tree/master/code/gorm1)
 
 ## Estudo de caso
 
