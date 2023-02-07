@@ -1,0 +1,15 @@
+docker run -p 6379:6379 --name some-redis -d redis
+
+POST
+
+curl -i --header "Content-Type: application/json" --request POST --data '{"data" : "save this", "onetime" : false}' http://localhost:8080/api/note
+
+onetime
+
+curl -i --header "Content-Type: application/json" --request POST --data '{"data" : "save this one time", "onetime" : true}' http://localhost:8080/api/note
+
+
+GET
+
+curl -i  http://localhost:8080/api/note/f2531083-3cd0-4a54-a6a9-1eeeca138b8f
+

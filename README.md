@@ -11,7 +11,8 @@ This is a repository to learn [**Go programming language**](https://golang.org/)
 
 Este é um repositório para aprender a [**Linguagem de programação Go**](https://golang.org/). É um curso completo e gratuito de programação básica com **GoLang**.
 
-![](./new.png) [**Conteiners: Go em Conserva!**](./code/goconteiner)
+![](./new.png) [**Métricas: Go + K8s + Prometheus + Grafana**](./code/gok8sgrafana)
+- [**Conteiners: Go em Conserva!**](./code/goconteiner)
 - [**Websockets em Go!**](./portuguese/gowebsockets)
 - [**Generics com Golang**](./portuguese/gogenerics)
 - [**REST API Com Postgres e Gorilla/Mux**](./portuguese/simpleapi) 
