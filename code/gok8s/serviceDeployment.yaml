@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: demo
+  name: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: demo
+    spec:
+      hostname: demo
+      subdomain: demoapi
+      containers:
+      - image: docker.io/library/api:v001
+        name: demo
+        resources: {}
+        imagePullPolicy: Never
+        env:                     
+          - name: API_DB_URL
+            value: redis-db:6379
+
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: demo
+  name: demo
+spec:
+  ports:
+  - name: 8080-8080
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: demo
+  type: ClusterIP
+status:
+  loadBalancer: {}
+
