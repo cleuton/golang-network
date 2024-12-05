@@ -1,0 +1,4 @@
+curl -i --header "Content-Type: application/json" --request POST --data '{"query" : "{url(name:\"google\") {name siteurl}}"}' http://localhost:8080/graphql
+curl -i --header "Content-Type: application/json" --request POST --data '{"query": "{urllist {name siteurl}}"}' http://localhost:8080/graphql
+curl -i --header "Content-Type: application/json" --request POST --data '{ "query": "mutation { createUrl(name:\"youtube\", siteurl:\"youtube.com\") { name siteurl } }" }' http://localhost:8080/graphql
+curl -i --header "Content-Type: application/json" --request POST --data '{ "query": "mutation { deleteUrl(name:\"youtube\") { name siteurl } }" }' http://localhost:8080/graphql
