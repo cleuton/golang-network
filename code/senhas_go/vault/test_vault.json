@@ -1,0 +1,19 @@
+{
+  "cabecalho": {
+    "salt": "pf9k5SZeg8ofnb9I+IPjUw==",
+    "iteracoes": 200000,
+    "tag_check": "gzBfcnOX9RnUnpmKnA2+7NeOCVPya6xBNl2jv2GiavQ="
+  },
+  "entradas": [
+    {
+      "id": "K8qeHLNVwjEhySTfisVinw==",
+      "iv": "NMKv6uslF0TbQpar",
+      "cipher": "F1oszmbo94zHyD5W9vGIp5/9o9Jo+jDjz1KuN1aGgOa6Kn/rNnEsYzyIuL+xrh0Ws+AxcFMpsxPgOvB+xMPElPlfnA=="
+    },
+    {
+      "id": "A8CVVq9vJu4lZXcvC+UoJg==",
+      "iv": "7lmXjfB5bU+ARIEf",
+      "cipher": "t3JHY15k+2nz9DDH5UvdFxYon0MydFGcwXt+v6ubKz8d4SaRhKsPOQ+S/FvAmvy+WlfcMmcAeQcapy6hgBVlVw1oDg=="
+    }
+  ]
+}
