@@ -1,0 +1,15 @@
+{
+  "name": "zaptidgen-nodejs",
+  "version": "0.1.0",
+  "description": "Servidor Node.js/Express para benchmark ZAPTIDGEN",
+  "main": "cluster.js",
+  "scripts": {
+    "start": "node cluster.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "sonyflake": "^1.0.3"
+  },
+  "author": "Cleuton Sampaio",
+  "license": "Apache-2.0"
+}

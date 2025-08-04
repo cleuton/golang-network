@@ -4,6 +4,11 @@
 *.dll
 *.so
 *.dylib
+*.bin
+.venv/
+node_modules/
+target/
+build/
 
 # Test binary, build with `go test -c`
 *.test

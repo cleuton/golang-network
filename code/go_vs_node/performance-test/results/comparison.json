@@ -1,0 +1,44 @@
+{
+  "go_fasthttp": {
+    "k6": {
+      "min_response_time": 71.15299999999999,
+      "max_response_time": 4634.400000000001,
+      "avg_response_time": 484.1544340092009,
+      "std_response_time": 297.96833169025496,
+      "total_requests": 88035,
+      "success_rate": 100.0
+    },
+    "resources": {
+      "min_cpu": 1.6,
+      "max_cpu": 7.9,
+      "avg_cpu": 3.6288659793814433,
+      "std_cpu": 1.3043164527578068,
+      "min_memory": 6648.0,
+      "max_memory": 6772.0,
+      "avg_memory": 6682.731958762886,
+      "std_memory": 22.01255109019129
+    },
+    "binary_size": 7638749
+  },
+  "nodejs_express": {
+    "k6": {
+      "min_response_time": 266.61,
+      "max_response_time": 9601.073,
+      "avg_response_time": 1299.5143418040716,
+      "std_response_time": 542.6164378641888,
+      "total_requests": 86848,
+      "success_rate": 100.0
+    },
+    "resources": {
+      "min_cpu": 2.2,
+      "max_cpu": 25.7,
+      "avg_cpu": 7.465979381443299,
+      "std_cpu": 3.2503168626925865,
+      "min_memory": 6919.0,
+      "max_memory": 7629.0,
+      "avg_memory": 7327.041237113402,
+      "std_memory": 244.12001477781433
+    },
+    "binary_size": 2247178
+  }
+}

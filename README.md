@@ -11,7 +11,8 @@ This is a repository to learn [**Go programming language**](https://golang.org/)
 
 Este é um repositório para aprender a [**Linguagem de programação Go**](https://golang.org/). É um curso completo e gratuito de programação básica com **GoLang**.
 
-- ![](./new.png) [**Senhas Go!!!**](./code/senhas_go/)
+- ![](./new.png) [**Go e NodeJS no octógono!**](./code/go_vs_node/)
+- [**Senhas Go!!!**](./code/senhas_go/)
 - [**GraphQL em Go!!!**](./code/graphql_go/)
 - [**GO BDD!!!! Como podemos criar Behavior-driven development com Golang**](./code/gobdd/)
 - [**GO K8S!!!! Sua API no Kubernetes com Kong Ingress Controller**](./code/gok8s/)
